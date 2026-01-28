@@ -86,7 +86,7 @@ $title = 'Dashboard';
                   <!-- Account -->
                   <div class="card-body">
                     <!-- Account Form -->
-                    <form id="formAccountSettings" method="POST" action="assets/process/add_account.php" enctype="multipart/form-data">
+                    <form id="formAccountSettings" method="POST" action="process/save_account.php" enctype="multipart/form-data">
 
                       <!-- Profile Photo Upload Section -->
                       <div class="d-flex align-items-start align-items-sm-center gap-4">
@@ -181,9 +181,10 @@ $title = 'Dashboard';
 
                       <!-- branch field -->
                       <div class="mb-3 col-md-6">
-                        <label for="branch" class="form-label">Branch<span class="text-danger">*</span></label>
+                        <label for="branch" class="form-label">Satellite<span class="text-danger">*</span></label>
                         <select id="branch" name="branch" class="select2 form-select" required>
-                          <option value="">Select Branch</option>
+                          <option value="">Select Satellite</option>
+                          <option value="1">Sample</option>
                           <?php //$account->selectBranch($con); ?>
                         </select>
                       </div>

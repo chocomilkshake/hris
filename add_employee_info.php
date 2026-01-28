@@ -21,7 +21,7 @@ require_once 'autoloader.php';
 $layout = new layout();
 
 // Page title (passed to <head>)
-$title = 'Dashboard';
+$title = 'Employee Information';
 ?>
 
 <html
@@ -180,7 +180,7 @@ $title = 'Dashboard';
 
                       <!-- Department dropdown -->
                       <div class="mb-3 col-md-6">
-                        <label for="department" class="form-label"><span class="text-danger">*</span></label>
+                        <label for="department" class="form-label">Department<span class="text-danger">*</span></label>
                         <select id="department" name="department" class="select2 form-select" required>
                           <option value="">Select Department</option>
                           <option value="admin">HSW</option>
@@ -190,7 +190,7 @@ $title = 'Dashboard';
 
                       <!-- Type of Contract dropdown -->
                       <div class="mb-3 col-md-6">
-                        <label for="contract-type" class="form-label"><span class="text-danger">*</span></label>
+                        <label for="contract-type" class="form-label">Contract Type<span class="text-danger">*</span></label>
                         <select id="contract-type" name="contract-type" class="select2 form-select" required>
                           <option value="">Select Contract Type</option>
                           <option value="admin">Training</option>
@@ -203,7 +203,7 @@ $title = 'Dashboard';
 
                       <!-- Satellite Office dropdown -->
                       <div class="mb-3 col-md-6">
-                        <label for="satellite" class="form-label"><span class="text-danger">*</span></label>
+                        <label for="satellite" class="form-label">Satellite Office<span class="text-danger">*</span></label>
                         <select id="satellite" name="satellite" class="select2 form-select" required>
                           <option value="">Select Satellite Office</option>
                           <option value=""></option>
@@ -213,7 +213,7 @@ $title = 'Dashboard';
 
                       <!-- SSS No. field -->
                       <div class="mb-3 col-md-6">
-                        <label for="sss" class="form-label">Last Name<span class="text-danger">*</span></label>
+                        <label for="sss" class="form-label">SSS Number<span class="text-danger">*</span></label>
                         <input
                           class="form-control"
                           type="text"
@@ -225,7 +225,7 @@ $title = 'Dashboard';
 
                       <!-- PhilHealth No. field -->
                       <div class="mb-3 col-md-6">
-                        <label for="philhealth" class="form-label">Last Name<span class="text-danger">*</span></label>
+                        <label for="philhealth" class="form-label">PhilHealth<span class="text-danger">*</span></label>
                         <input
                           class="form-control"
                           type="text"
@@ -237,7 +237,7 @@ $title = 'Dashboard';
 
                       <!-- Pag-Ibig N field -->
                       <div class="mb-3 col-md-6">
-                        <label for="pagibig" class="form-label">Last Name<span class="text-danger">*</span></label>
+                        <label for="pagibig" class="form-label">Pag-Ibig<span class="text-danger">*</span></label>
                         <input
                           class="form-control"
                           type="text"
@@ -245,6 +245,21 @@ $title = 'Dashboard';
                           id="last-name"
                           placeholder="Last Name"
                           required />
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="formFile" class="form-label">PSA Birth Certificate</label>
+                        <input class="form-control" type="file" id="formFile" />
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="formFile" class="form-label">NBI Clearance</label>
+                        <input class="form-control" type="file" id="formFile" />
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="formFile" class="form-label">Medical Exam Document</label>
+                        <input class="form-control" type="file" id="formFile" />
                       </div>
 
                     </div>

@@ -72,6 +72,7 @@ class layout
 
             <!-- Theme configuration -->
             <script src="assets/js/config.js"></script>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         </head>
 <?php
     }
@@ -236,6 +237,25 @@ class layout
                             </a>
                         </li>
                     </ul>
+                </li>
+
+                <li class="menu-header small text-uppercase">
+                    <span>Settings</span>
+                </li>
+
+                <!-- Menu with sub-items -->
+                <li class="menu-item">
+                    
+                        <li class="menu-item">
+                            <a href="company.php" class="menu-link">
+                                <i class="menu-icon bx bx-buildings"></i>
+                                Satellite Office
+                            </a>
+                            <a href="company.php" class="menu-link">
+                                <i class="menu-icon bx bxs-group"></i>
+                                Department
+                            </a>
+                        </li>
                 </li>
 
             </ul>

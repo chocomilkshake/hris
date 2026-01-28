@@ -19,6 +19,7 @@ require_once 'autoloader.php';
 
 // Instantiate layout class
 $layout = new layout();
+$getData = new get_data();
 
 // Page title (passed to <head>)
 $title = 'Company';
@@ -72,7 +73,7 @@ $title = 'Company';
 
               <ul class="nav nav-pills flex-column flex-md-row mb-3">
                 <li class="nav-item">
-                  <a class="nav-link active" href="add_accounts">
+                  <a class="nav-link active" href="add_company">
                     <i class="bx bx-user me-1"></i> Add Company
                   </a>
                 </li>
@@ -93,25 +94,7 @@ $title = 'Company';
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        
-                        <th scope="row">1</th>
-                        <td><img src="" alt=""></td>
-                        <td>SMC Manpower Agency</td>
-                        <td>50
-                        </td>
-                        <td>
-                          <div class="dropdown">
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                              <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="employee_info.php"><i class="bx bx-edit-alt me-1"></i> View</a>
-                              <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
+                      <?php $getData->company_list($con);?>
                     </tbody>
                   </table>
                 </div>
