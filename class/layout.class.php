@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Layout Class
  * --------------------------------------------------
@@ -29,6 +30,7 @@ class layout
     public function head($title)
     {
 ?>
+
         <head>
             <!-- Character encoding -->
             <meta charset="utf-8" />
@@ -74,7 +76,7 @@ class layout
             <script src="assets/js/config.js"></script>
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         </head>
-<?php
+    <?php
     }
 
     /**
@@ -86,7 +88,7 @@ class layout
      */
     public function navbar()
     {
-?>
+    ?>
         <!-- Layout main container -->
         <div class="layout-page">
 
@@ -105,18 +107,6 @@ class layout
 
                 <!-- Right navbar content -->
                 <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-
-                    <!-- Search bar -->
-                    <div class="navbar-nav align-items-center">
-                        <div class="nav-item d-flex align-items-center">
-                            <i class="bx bx-search fs-4"></i>
-                            <input
-                                type="text"
-                                class="form-control border-0 shadow-none"
-                                placeholder="Search..."
-                                aria-label="Search..." />
-                        </div>
-                    </div>
 
                     <!-- User actions -->
                     <ul class="navbar-nav flex-row align-items-center ms-auto">
@@ -149,7 +139,9 @@ class layout
                                     </a>
                                 </li>
 
-                                <li><div class="dropdown-divider"></div></li>
+                                <li>
+                                    <div class="dropdown-divider"></div>
+                                </li>
 
                                 <!-- Logout -->
                                 <li>
@@ -166,7 +158,7 @@ class layout
                 </div>
             </nav>
             <!-- /Navbar -->
-<?php
+        <?php
     }
 
     /**
@@ -178,90 +170,90 @@ class layout
      */
     public function sideMenu()
     {
-?>
-        <!-- Sidebar Menu -->
-        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+        ?>
+            <!-- Sidebar Menu -->
+            <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
 
-            <!-- App title -->
-            <div class="app-brand demo">
-                <h4>CREMPCO HRIS</h4>
-            </div>
+                <!-- App title -->
+                <div class="app-brand demo">
+                    <h4>CREMPCO HRIS</h4>
+                </div>
 
-            <div class="menu-inner-shadow"></div>
+                <div class="menu-inner-shadow"></div>
 
-            <!-- Menu items -->
-            <ul class="menu-inner py-1">
+                <!-- Menu items -->
+                <ul class="menu-inner py-1">
 
-                <!-- Dashboard -->
-                <li class="menu-item active">
-                    <a href="index.php" class="menu-link">
-                        <i class="menu-icon bx bx-home-circle"></i>
-                        <div>Dashboard</div>
-                    </a>
-                </li>
+                    <!-- Dashboard -->
+                    <li class="menu-item active">
+                        <a href="index.php" class="menu-link">
+                            <i class="menu-icon bx bx-home-circle"></i>
+                            <div>Dashboard</div>
+                        </a>
+                    </li>
 
-                <!-- Account Settings -->
-                <li class="menu-header small text-uppercase">
-                    <span>Account Setting</span>
-                </li>
+                    <!-- Account Settings -->
+                    <li class="menu-header small text-uppercase">
+                        <span>Account Setting</span>
+                    </li>
 
-                <!-- Menu with sub-items -->
-                <li class="menu-item">
-                    <a href="javascript:void(0);" class="menu-link menu-toggle">
-                        <i class="menu-icon bx bx-dock-top"></i>
-                        <div>Accounts</div>
-                    </a>
-                    <ul class="menu-sub">
-                        <li class="menu-item">
-                            <a href="accounts.php" class="menu-link">
-                                Account
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                    <!-- Menu with sub-items -->
+                    <li class="menu-item">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon bx bx-dock-top"></i>
+                            <div>Accounts</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="accounts.php" class="menu-link">
+                                    Account
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
 
-                <li class="menu-header small text-uppercase">
-                    <span>201 Record</span>
-                </li>
+                    <li class="menu-header small text-uppercase">
+                        <span>201 Record</span>
+                    </li>
 
-                <!-- Menu with sub-items -->
-                <li class="menu-item">
-                    <a href="javascript:void(0);" class="menu-link menu-toggle">
-                        <i class="menu-icon bx bx-user"></i>
-                        <div>Employee Info</div>
-                    </a>
-                    <ul class="menu-sub">
-                        <li class="menu-item">
-                            <a href="company.php" class="menu-link">
-                                Company
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                    <!-- Menu with sub-items -->
+                    <li class="menu-item">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon bx bx-user"></i>
+                            <div>Employee Info</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="company.php" class="menu-link">
+                                    Company
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
 
-                <li class="menu-header small text-uppercase">
-                    <span>Settings</span>
-                </li>
+                    <li class="menu-header small text-uppercase">
+                        <span>Settings</span>
+                    </li>
 
-                <!-- Menu with sub-items -->
-                <li class="menu-item">
-                    
-                        <li class="menu-item">
-                            <a href="company.php" class="menu-link">
-                                <i class="menu-icon bx bx-buildings"></i>
-                                Satellite Office
-                            </a>
-                            <a href="company.php" class="menu-link">
-                                <i class="menu-icon bx bxs-group"></i>
-                                Department
-                            </a>
-                        </li>
-                </li>
+                    <!-- Menu with sub-items -->
+                    <li class="menu-item">
 
-            </ul>
-        </aside>
-        <!-- /Sidebar -->
-<?php
+                    <li class="menu-item">
+                        <a href="company.php" class="menu-link">
+                            <i class="menu-icon bx bx-buildings"></i>
+                            Satellite Office
+                        </a>
+                        <a href="company.php" class="menu-link">
+                            <i class="menu-icon bx bxs-group"></i>
+                            Department
+                        </a>
+                    </li>
+                    </li>
+
+                </ul>
+            </aside>
+            <!-- /Sidebar -->
+        <?php
     }
 
     /**
@@ -273,28 +265,29 @@ class layout
      */
     public function jScript()
     {
-?>
-        <!-- Core JS -->
-        <script src="assets/vendor/libs/jquery/jquery.js"></script>
-        <script src="assets/vendor/libs/popper/popper.js"></script>
-        <script src="assets/vendor/js/bootstrap.js"></script>
-        <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-        <script src="assets/vendor/js/menu.js"></script>
+        ?>
+            <!-- Core JS -->
+            <script src="assets/vendor/libs/jquery/jquery.js"></script>
+            <script src="assets/vendor/libs/popper/popper.js"></script>
+            <script src="assets/vendor/js/bootstrap.js"></script>
+            <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+            <script src="assets/vendor/js/menu.js"></script>
 
-        <!-- Vendor JS -->
-        <script src="assets/vendor/libs/apex-charts/apexcharts.js"></script>
+            <!-- Vendor JS -->
+            <script src="assets/vendor/libs/apex-charts/apexcharts.js"></script>
 
-        <!-- Main JS -->
-        <script src="assets/js/main.js"></script>
+            <!-- Main JS -->
+            <script src="assets/js/main.js"></script>
 
-        <!-- Page-specific JS -->
-        <script src="assets/js/dashboards-analytics.js"></script>
+            <!-- Page-specific JS -->
+            <script src="assets/js/dashboards-analytics.js"></script>
 
-        <!-- Page JS -->
-        <script src="assets/js/pages-account-settings-account.js"></script>
+            <!-- Page JS -->
+            <script src="assets/js/pages-account-settings-account.js"></script>
+            <script src="js/address-ajax.js"></script>
 
-        <!-- GitHub Buttons -->
-        <script async defer src="https://buttons.github.io/buttons.js"></script>
-<?php
+            <!-- GitHub Buttons -->
+            <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <?php
     }
 }

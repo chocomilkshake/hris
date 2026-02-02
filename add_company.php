@@ -82,7 +82,7 @@ $title = 'Add Company';
 
 
                                 <div class="card mb-4">
-                                    <h5 class="card-header">Profile Details</h5>
+                                    <h5 class="card-header">Company Details</h5>
                                     <!-- Account -->
                                     <div class="card-body">
                                         <!-- Account Form -->
@@ -96,6 +96,7 @@ $title = 'Add Company';
                                                     alt="user-avatar"
                                                     class="d-block rounded"
                                                     height="100"
+                                                    
                                                     width="100"
                                                     id="uploadedAvatar" />
 
@@ -157,28 +158,28 @@ $title = 'Add Company';
 
                                             <div class="mb-3 col-md-6">
                                                 <label for="region" class="form-label">Region<span class="text-danger">*</span></label>
-                                                <select id="region" class="form-select">
+                                                <select id="region" name="region" class="form-select">
                                                     <option value="">Select Region</option>
                                                 </select>
                                             </div>
 
                                             <div class="mb-3 col-md-6">
                                                 <label for="province" class="form-label">Province<span class="text-danger">*</span></label>
-                                                <select id="province" class="form-select">
+                                                <select id="province" name="province" class="form-select">
                                                     <option value="">Select Province</option>
                                                 </select>
                                             </div>
 
                                             <div class="mb-3 col-md-6">
                                                 <label for="city" class="form-label">City/Municipality<span class="text-danger">*</span></label>
-                                                <select id="city" class="form-select">
+                                                <select id="city" name="city" class="form-select">
                                                     <option value="">Select City/Municipality</option>
                                                 </select>
                                             </div>
-                                            
+
                                             <div class="mb-3 col-md-6">
                                                 <label for="barangay" class="form-label">Barangay<span class="text-danger">*</span></label>
-                                                <select id="barangay" class="form-select">
+                                                <select id="barangay" name="barangay" class="form-select">
                                                     <option value="">Select Barangay</option>
                                                 </select>
                                             </div>

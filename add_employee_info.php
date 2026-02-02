@@ -86,7 +86,7 @@ $title = 'Employee Information';
                   <!-- Account -->
                   <div class="card-body">
                     <!-- Account Form -->
-                    <form id="formAccountSettings" method="POST" action="process/add_employee.php" enctype="multipart/form-data">
+                    <form id="formAccountSettings" method="POST" action="process/save_employee_info.php" enctype="multipart/form-data">
 
                       <!-- Profile Photo Upload Section -->
                       <div class="d-flex align-items-start align-items-sm-center gap-4">
@@ -110,7 +110,8 @@ $title = 'Employee Information';
                               name="upload"
                               class="account-file-input"
                               hidden
-                              accept="image/png, image/jpeg" />
+                              accept="image/png, image/jpeg"
+                              required />
                           </label>
 
                           <!-- Reset profile photo to default -->
@@ -206,8 +207,11 @@ $title = 'Employee Information';
                         <label for="satellite" class="form-label">Satellite Office<span class="text-danger">*</span></label>
                         <select id="satellite" name="satellite" class="select2 form-select" required>
                           <option value="">Select Satellite Office</option>
-                          <option value=""></option>
-                          <option value=""></option>
+                          <?php
+                          // Populate satellite options from database
+                          $getData = new get_data();
+                          $getData->satellite($con); 
+                          ?>
                         </select>
                       </div>
 
@@ -241,25 +245,25 @@ $title = 'Employee Information';
                         <input
                           class="form-control"
                           type="text"
-                          name="last-name"
-                          id="last-name"
-                          placeholder="Last Name"
+                          name="pagibig"
+                          id="pagibig"
+                          placeholder="Pag-Ibig Number"
                           required />
                       </div>
 
                       <div class="mb-3">
                         <label for="formFile" class="form-label">PSA Birth Certificate</label>
-                        <input class="form-control" type="file" id="formFile" />
+                        <input class="form-control" type="file" id="formFile" name="psa_file" />
                       </div>
 
                       <div class="mb-3">
                         <label for="formFile" class="form-label">NBI Clearance</label>
-                        <input class="form-control" type="file" id="formFile" />
+                        <input class="form-control" type="file" id="formFile" name="nbi_file" />
                       </div>
 
                       <div class="mb-3">
                         <label for="formFile" class="form-label">Medical Exam Document</label>
-                        <input class="form-control" type="file" id="formFile" />
+                        <input class="form-control" type="file" id="formFile" name="medical_file" />
                       </div>
 
                     </div>
