@@ -85,10 +85,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // 🔹 UPLOAD FILES
     // DEBUG: If photo missing → check input name="upload"
     // ==================================================
-    $photo    = uploadFile($_FILES['upload'], "../uploads/employee_photo/", 3); // 3MB
-    $psa_file = uploadFile($_FILES['psa_file'], "../uploads/file_folder/", 5);  // 5MB
-    $nbi_file = uploadFile($_FILES['nbi_file'], "../uploads/file_folder/", 5);  // 5MB
-    $medical  = uploadFile($_FILES['medical_file'], "../uploads/file_folder/", 5); // 5MB
+    $photo    = uploadFile($_FILES['upload'], "../employee_photo/", 3); // 3MB
+    $psa_file = uploadFile($_FILES['psa_file'], "../file_folder/", 5);  // 5MB
+    $nbi_file = uploadFile($_FILES['nbi_file'], "../file_folder/", 5);  // 5MB
+    $medical  = uploadFile($_FILES['medical_file'], "../file_folder/", 5); // 5MB
 
     // ==================================================
     // 🔹 DATABASE INSERT (SQL INJECTION SAFE)

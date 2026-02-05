@@ -110,8 +110,7 @@ $title = 'Employee Information';
                               name="upload"
                               class="account-file-input"
                               hidden
-                              accept="image/png, image/jpeg"
-                              required />
+                              accept="image/png, image/jpeg"/>
                           </label>
 
                           <!-- Reset profile photo to default -->
@@ -145,12 +144,12 @@ $title = 'Employee Information';
 
                       <!-- First Name field -->
                       <div class="mb-3 col-md-6">
-                        <label for="first-name" class="form-label">First Name<span class="text-danger">*</span></label>
+                        <label for="first_name" class="form-label">First Name<span class="text-danger">*</span></label>
                         <input
                           class="form-control"
                           type="text"
-                          id="first-name"
-                          name="first-name"
+                          id="first_name"
+                          name="first_name"
                           placeholder="first Name"
                           autofocus
                           required />
@@ -158,23 +157,23 @@ $title = 'Employee Information';
 
                       <!-- Middle Name field -->
                       <div class="mb-3 col-md-6">
-                        <label for="middle-name" class="form-label">Middle Name</label>
+                        <label for="middle_name" class="form-label">Middle Name</label>
                         <input
                           class="form-control"
                           type="text"
-                          id="middle-name"
-                          name="middle-name"
+                          id="middle_name"
+                          name="middle_name"
                           placeholder="Middle Name" />
                       </div>
 
                       <!-- Last Name field -->
                       <div class="mb-3 col-md-6">
-                        <label for="last-name" class="form-label">Last Name<span class="text-danger">*</span></label>
+                        <label for="last_name" class="form-label">Last Name<span class="text-danger">*</span></label>
                         <input
                           class="form-control"
                           type="text"
-                          name="last-name"
-                          id="last-name"
+                          name="last_name"
+                          id="last_name"
                           placeholder="Last Name"
                           required />
                       </div>
