@@ -26,9 +26,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $first_name   = clean($_POST['first_name'] ?? '');
     $middle_name  = clean($_POST['middle_name'] ?? '');
     $last_name    = clean($_POST['last_name'] ?? '');
+    $company      = clean($_POST['company'] ?? '');
     $department   = clean($_POST['department'] ?? '');
     $contract     = clean($_POST['contract_type'] ?? '');
     $satellite    = clean($_POST['satellite'] ?? '');
+    $salary_rate  = clean($_POST['salary_rate'] ?? '');
+    $allowance     = clean($_POST['allowance'] ?? '');
 
     // 🔹 Remove non-numbers
     $sss        = preg_replace('/[^0-9]/', '', $_POST['sss'] ?? '');
@@ -85,29 +88,30 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // 🔹 UPLOAD FILES
     // DEBUG: If photo missing → check input name="upload"
     // ==================================================
-    $photo    = uploadFile($_FILES['upload'], "../employee_photo/", 3); // 3MB
-    $psa_file = uploadFile($_FILES['psa_file'], "../file_folder/", 5);  // 5MB
-    $nbi_file = uploadFile($_FILES['nbi_file'], "../file_folder/", 5);  // 5MB
-    $medical  = uploadFile($_FILES['medical_file'], "../file_folder/", 5); // 5MB
+    $photo    = uploadFile($_FILES['upload'], "employee_photo/", 3); // 3MB
+    $psa_file = uploadFile($_FILES['psa_file'], "file_folder/", 5);  // 5MB
+    $nbi_file = uploadFile($_FILES['nbi_file'], "file_folder/", 5);  // 5MB
+    $medical  = uploadFile($_FILES['medical_file'], "file_folder/", 5); // 5MB
 
     // ==================================================
     // 🔹 DATABASE INSERT (SQL INJECTION SAFE)
     // DEBUG: If prepare fails → column mismatch or DB issue
     // ==================================================
     $stmt = $con->prepare("INSERT INTO employees 
-        (first_name, middle_name, last_name, department, contract_type, satellite_office,
-         sss_no, philhealth_no, pagibig_no, photo, psa_doc, nbi_doc, medical_doc)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        (first_name, middle_name, last_name, company, department, contract_type, satellite_office,
+         sss_no, philhealth_no, pagibig_no, photo_dir, psa_doc, nbi_doc, medical_doc, salary_rate, allowance)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
     if (!$stmt) {
         die("DEBUG: Prepare failed → " . $con->error);
     }
 
     $stmt->bind_param(
-        "sssssssssssss",
+        "ssssssssssssssdd",
         $first_name,
         $middle_name,
         $last_name,
+        $company,
         $department,
         $contract,
         $satellite,
@@ -117,14 +121,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $photo,
         $psa_file,
         $nbi_file,
-        $medical
+        $medical,
+        $salary_rate,
+        $allowance  
     );
 
     // 🔹 EXECUTE INSERT
     if ($stmt->execute()) {
         echo "<script>
                 alert('Employee added successfully.');
-                window.location.href = '../employee_info';
+                window.location.href = '../employee_info?company_id=" . urlencode($_POST['company']) . "';
               </script>";
     } else {
         // DEBUG: Shows DB error in server logs

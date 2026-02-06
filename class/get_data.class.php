@@ -9,6 +9,8 @@ class get_data
     ========================================================= */
     public function company_list($con)
     {
+
+
         // 🔹 SQL query to get all companies
         $sql = "SELECT * FROM `company`";
 
@@ -37,6 +39,13 @@ class get_data
 
             // DEBUG: Uncomment to inspect data
             // echo "<pre>"; print_r($row); echo "</pre>";
+            function encrypt_id($id)
+            {
+                $key = "MY_SECRET_KEY_12345";
+                return openssl_encrypt($id, "AES-128-ECB", "crempcoop");
+            }
+
+            $secure_id = encrypt_id($row['id']);
 ?>
             <tr>
                 <!-- 🔹 Auto row number -->
@@ -61,7 +70,7 @@ class get_data
                         </button>
                         <div class="dropdown-menu">
                             <!-- View company employees -->
-                            <a class="dropdown-item" href="employee_info.php">
+                            <a class="dropdown-item" href="employee_info.php?company_id=<?= urlencode($secure_id) ?>">
                                 <i class="bx bx-edit-alt me-1"></i> View
                             </a>
 
@@ -114,12 +123,24 @@ class get_data
         $stmt->close();
     }
 
-    public function employee($con)
+    public function employee($con, $companyId)
     {
-        // 🔹 Fetch employees
-        $stmt = $con->prepare("SELECT * FROM employees");
+        // 🔹 Fetch employees WITH province description
+        $stmt = $con->prepare("
+    SELECT 
+        e.*, 
+        rp.provDesc 
+    FROM employees e
+    LEFT JOIN refprovince rp ON e.satellite_office = rp.provCode
+    WHERE e.company = ?
+");
+
         if (!$stmt) {
             die("❌ Employee Query Prepare Failed: " . $con->error);
+        }
+
+        if (!$stmt->bind_param("i", $companyId)) {
+            die("❌ Employee Query Bind Failed: " . $stmt->error);
         }
 
         if (!$stmt->execute()) {
@@ -128,23 +149,25 @@ class get_data
 
         $result = $stmt->get_result();
 
+
         // DEBUG: If no employees found
         if ($result->num_rows == 0) {
             echo '<tr><td colspan="5">No employees found</td></tr>';
         }
-
+        $count = 1;
         // 🔹 Output employee rows
         while ($row = $result->fetch_assoc()) {
             echo '<tr>
+                    <td>' . $count++ . '</td>
+                    <td> <img src="' . $row['photo_dir'] . '" width="30" alt="photo"></td>
+                    <td>' . $row['first_name'] . ' ' . $row['middle_name'] . ' ' . $row['last_name'] . '</td>
+                    <td>' . $row['department'] . '</td>
+                    <td>' . ($row['provDesc'] ?? 'N/A') . '</td>
                     
                   </tr>';
         }
 
         $stmt->close();
-
     }
-
-
-
 }
 ?>

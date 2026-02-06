@@ -19,7 +19,8 @@ require_once 'autoloader.php';
 
 // Instantiate layout class
 $layout = new layout();
-
+$companyId = isset($_GET['company_id']) ? $_GET['company_id'] : null;
+$id = openssl_decrypt($companyId, "AES-128-ECB","crempcoop");
 // Page title (passed to <head>)
 $title = 'Employee Information';
 ?>
@@ -74,7 +75,7 @@ $title = 'Employee Information';
                 <!-- Navigation Tabs -->
                 <ul class="nav nav-pills flex-column flex-md-row mb-3">
                   <li class="nav-item">
-                    <a class="nav-link active" href="employee_info">
+                    <a class="nav-link active" href="employee_info?company_id=<?php echo $companyId; ?>">
                       <i class="bx bx-arrow-back me-1"></i> Back
                     </a>
                   </li>
@@ -178,13 +179,25 @@ $title = 'Employee Information';
                           required />
                       </div>
 
-                      <!-- Department dropdown -->
+                      <!-- Company field  -->
+                      <input type="hidden" name="company" value="<?php echo $id; ?>" />
+
+
+                     <!-- Department dropdown -->
                       <div class="mb-3 col-md-6">
                         <label for="department" class="form-label">Department<span class="text-danger">*</span></label>
                         <select id="department" name="department" class="select2 form-select" required>
                           <option value="">Select Department</option>
-                          <option value="admin">HSW</option>
-                          <option value="encoder">Skilled</option>
+                          
+                        </select>
+                      </div>
+
+                      <!-- Department dropdown -->
+                      <div class="mb-3 col-md-6">
+                        <label for="department" class="form-label">Job Title<span class="text-danger">*</span></label>
+                        <select id="department" name="department" class="select2 form-select" required>
+                          <option value="">Select Job Title</option>
+                          
                         </select>
                       </div>
 
@@ -193,11 +206,11 @@ $title = 'Employee Information';
                         <label for="contract-type" class="form-label">Contract Type<span class="text-danger">*</span></label>
                         <select id="contract-type" name="contract-type" class="select2 form-select" required>
                           <option value="">Select Contract Type</option>
-                          <option value="admin">Training</option>
-                          <option value="encoder">On Call</option>
-                          <option value="">TEC</option>
-                          <option value="">Provisionary</option>
-                          <option value="">Regular</option>
+                          <option value="training">Training</option>
+                          <option value="on-call">On Call</option>
+                          <option value="tec">TEC</option>
+                          <option value="provisionary">Provisionary</option>
+                          <option value="regular">Regular</option>
                         </select>
                       </div>
 
@@ -212,6 +225,29 @@ $title = 'Employee Information';
                           $getData->satellite($con); 
                           ?>
                         </select>
+                      </div>
+
+                      <!-- Salary Rate field -->
+                      <div class="mb-3 col-md-6">
+                        <label for="salary_rate" class="form-label">Salary Rate<span class="text-danger">*</span></label>
+                        <input
+                          class="form-control"
+                          type="number"
+                          name="salary_rate"
+                          id="salary_rate"
+                          placeholder="Salary Rate"
+                          required />
+                      </div>
+                      <!-- Allowance field -->
+                      <div class="mb-3 col-md-6">
+                        <label for="allowance" class="form-label">Allowance<span class="text-danger">*</span></label>
+                        <input
+                          class="form-control"
+                          type="number"
+                          name="allowance"
+                          id="allowance"
+                          placeholder="Allowance"
+                          required />
                       </div>
 
                       <!-- SSS No. field -->

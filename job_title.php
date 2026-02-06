@@ -74,30 +74,25 @@ $title = 'Employee Info';
 
               <ul class="nav nav-pills flex-column flex-md-row mb-3">
                 <li class="nav-item">
-                  <a class="nav-link active" href="add_employee_info?company_id=<?php echo $companyId; ?>">
-                    <i class="bx bx-user me-1"></i> Add Employee Info
+                  <a class="nav-link active" href="add_department">
+                    <i class="bx bx-plus me-1"></i> Add Department
                   </a>
                 </li>
               </ul>
 
               <!-- Responsive Table -->
               <div class="card">
-                <h5 class="card-header">Company List</h5>
+                <h5 class="card-header">Department List</h5>
                 <div class="table-responsive text-nowrap">
                   <table class="table">
                     <thead>
                       <tr class="text-nowrap">
                         <th>#</th>
-                        <th>Image</th>
-                        <th>Name</th>
-                        <th>Department</th>
-                        <th>Satellite</th>
-                        <th>Position</th>
-                        <th>Action</th>
+                        <th>CODE</th>
+                        <th>DEPARTMENT</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <?php $getData->employee($con, $id); ?>
                     </tbody>
                   </table>
                 </div>

@@ -186,7 +186,7 @@ class layout
 
                     <!-- Dashboard -->
                     <li class="menu-item active">
-                        <a href="index.php" class="menu-link">
+                        <a href="index" class="menu-link">
                             <i class="menu-icon bx bx-home-circle"></i>
                             <div>Dashboard</div>
                         </a>
@@ -205,7 +205,7 @@ class layout
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="accounts.php" class="menu-link">
+                                <a href="accounts" class="menu-link">
                                     Account
                                 </a>
                             </li>
@@ -224,7 +224,7 @@ class layout
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="company.php" class="menu-link">
+                                <a href="company" class="menu-link">
                                     Company
                                 </a>
                             </li>
@@ -239,13 +239,15 @@ class layout
                     <li class="menu-item">
 
                     <li class="menu-item">
-                        <a href="company.php" class="menu-link">
-                            <i class="menu-icon bx bx-buildings"></i>
-                            Satellite Office
-                        </a>
-                        <a href="company.php" class="menu-link">
+                        <a href="department" class="menu-link">
                             <i class="menu-icon bx bxs-group"></i>
                             Department
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="job_title" class="menu-link">
+                            <i class="menu-icon bx bxs-briefcase"></i>
+                            Job Title
                         </a>
                     </li>
                     </li>
