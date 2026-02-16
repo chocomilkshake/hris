@@ -20,10 +20,8 @@ require_once 'autoloader.php';
 // Instantiate layout class
 $layout = new layout();
 $getData = new get_data();
-$companyId = isset($_GET['company_id']) ? $_GET['company_id'] : null;
-$id = openssl_decrypt($companyId, "AES-128-ECB","crempcoop");
 // Page title (passed to <head>)
-$title = 'Employee Info';
+$title = 'Job Title';
 ?>
 
 <html
@@ -74,22 +72,22 @@ $title = 'Employee Info';
 
               <ul class="nav nav-pills flex-column flex-md-row mb-3">
                 <li class="nav-item">
-                  <a class="nav-link active" href="add_department">
-                    <i class="bx bx-plus me-1"></i> Add Department
+                  <a class="nav-link active" href="add_job_title">
+                    <i class="bx bx-plus me-1"></i> Add Job Title
                   </a>
                 </li>
               </ul>
 
               <!-- Responsive Table -->
               <div class="card">
-                <h5 class="card-header">Department List</h5>
+                <h5 class="card-header">Job Title List</h5>
                 <div class="table-responsive text-nowrap">
                   <table class="table">
                     <thead>
                       <tr class="text-nowrap">
                         <th>#</th>
                         <th>CODE</th>
-                        <th>DEPARTMENT</th>
+                        <th>Job Title</th>
                       </tr>
                     </thead>
                     <tbody>
